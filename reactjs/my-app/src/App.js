@@ -10,7 +10,7 @@ function App() {
 }
 function Intro(){
   return(
-    <div>
+    <div className='ones'>
       <h1>Welcome to our Music Gallrey</h1>
     </div>
   )
