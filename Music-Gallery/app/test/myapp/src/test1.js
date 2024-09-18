@@ -27,9 +27,6 @@ function Test1() {
       <div className='white'></div>
       <div className='orange'></div>
       <div className='pad'></div>
-      
-
-
     </>
   )
 }
