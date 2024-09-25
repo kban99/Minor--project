@@ -1,9 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import login from './login';
+import Login from './login';
+
+const code = new URLSearchParams(window.location.search).get('code')
 
 function App() {
-  return <login />
+  <Login />
 }
 
-export default App;
+export default App
