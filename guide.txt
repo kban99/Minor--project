@@ -1,3 +1,0 @@
-spotify_backend : npm i express
-spotify_backend : npm i mongoose
-spotify_backend : npm i dotenv

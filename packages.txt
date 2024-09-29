@@ -1,0 +1,16 @@
+** do it in order **
+
+spotify_backend : npm i express
+spotify_backend : npm i mongoose
+spotify_backend : npm i dotenv
+spotify_backend : npm install mongodb
+spotify_backend : npm i passport 
+spotify_backend : npm i passport-jwt
+spotify_backend : npm i bcrypt
+spotify_backend : npm i jsonwebtoken
+
+
+
+
+
+
