@@ -34,6 +34,32 @@ router.post("/register", async (req, res) => {
   return res.status(200).json(userToReturn);
 });
 
+router.post("/login", async (req,  res) => {
+  //step:1 get email and password sent by user from req.body
+  const {email, password} = req.body;
+
+  //step:2 check if a user with the given email exists. If not, the credentials are invalid
+  const user = await User.findOne({email: email});
+  if (!user){
+    return res.status(403).json({err:"Invalid credentials"});
+  }
+
+  //step:3 If the user exists, check if the password is correct. if not, the credentials are invalid
+  //bcrypt.compare enabled us to compare 1 password in plaintext(password from req.body) to a hashed password(the one in our db) securely.
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+  if(!isPasswordValid){
+    return res.status(403).json({err:"Invalid credentials"})
+  }
+
+  //step:4 if the credentials are correct, return a token to the user.
+  const token = await getToken(user.email, user);
+  const userToReturn = {...user.toJSON(), token};
+  delete userToReturn.password;
+  return res.status(200).json(userToReturn);
+
+});
+
+
 module.exports = router;
 
 
